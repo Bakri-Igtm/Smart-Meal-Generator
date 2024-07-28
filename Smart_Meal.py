@@ -1,5 +1,6 @@
 import pandas as pd
 import streamlit as st
+import streamlit.components.v1 as components
 import base64
 import os
 
@@ -53,16 +54,24 @@ def match_recipes(ingredients, recipe_db):
 
 GA_TRACKING_ID = "G-VJM1HSFC4J"
 GA_JS = f"""
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-VJM1HSFC4J"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){{dataLayer.push(arguments);}}
-  gtag('js', new Date());
+<!DOCTYPE html>
+<html>
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id={GA_TRACKING_ID}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){{dataLayer.push(arguments);}}
+    gtag('js', new Date());
+    gtag('config', '{GA_TRACKING_ID}');
+  </script>
+</head>
+<body>
+</body>
+</html>
+"""
 
-  gtag('config', 'G-VJM1HSFC4J');
-</script>"""
-st.markdown(GA_JS, unsafe_allow_html=True)
+# Embed Google Analytics script in the Streamlit app using components.html
+components.html(GA_JS, height=0, width=0)
 
 st.title("Smart Meal Generator")
 st.header("Enter the ingredients you have with you")
