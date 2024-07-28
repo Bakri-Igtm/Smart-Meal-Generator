@@ -26,12 +26,7 @@ def set_jpeg_as_page_bg(jpeg_file):
     '''
     st.markdown(page_bg_img, unsafe_allow_html=True)
 
-# Call the function with your JPEG image file
 
-# device = "cuda" if torch.cuda.is_available() else "cpu"
-# model_id = "runwayml/stable-diffusion-v1-5"
-# pipe = StableDiffusionPipeline.from_pretrained(model_id)
-# pipe = pipe.to(device)
 
 
 # def match_recipes(ingredients, recipe_db):
@@ -55,6 +50,19 @@ def match_recipes(ingredients, recipe_db):
 # def generate_image_from_description(description):
 #     image = pipe(description).images[0]
 #     return image
+
+GA_TRACKING_ID = "G-VJM1HSFC4J"
+GA_JS = f"""
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VJM1HSFC4J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VJM1HSFC4J');
+</script>"""
+st.markdown(GA_JS, unsafe_allow_html=True)
 
 st.title("Smart Meal Generator")
 st.header("Enter the ingredients you have with you")
