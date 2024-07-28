@@ -57,13 +57,15 @@ GA_JS = f"""
 <!DOCTYPE html>
 <html>
 <head>
-  <script async src="https://www.googletagmanager.com/gtag/js?id={GA_TRACKING_ID}"></script>
-  <script>
+  <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CEBJKBHVKF"></script>
+    <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){{dataLayer.push(arguments);}}
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', '{GA_TRACKING_ID}');
-  </script>
+
+    gtag('config', 'G-CEBJKBHVKF');
+    </script>
 </head>
 <body>
 </body>
